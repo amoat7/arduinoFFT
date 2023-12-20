@@ -130,6 +130,7 @@ public:
   void Compute(FFTDirection dir);
   void DCRemoval();
   double MajorPeak();
+uint16_t MaxIndex();
   void MajorPeak(double *f, double *v);
   void Windowing(FFTWindow windowType, FFTDirection dir);
 
