@@ -388,6 +388,27 @@ double arduinoFFT::MajorPeak() {
   return (interpolatedX);
 }
 
+uint16_t arduinoFFT::MaxIndex()
+{
+  double maxY = 0;
+  uint16_t IndexOfMaxY = 0;
+  // If sampling_frequency = 2 * max_frequency in signal,
+  // value would be stored at position samples/2
+  for (uint16_t i = 1; i < ((this->_samples >> 1) + 1); i++)
+  {
+    if ((this->_vReal[i - 1] < this->_vReal[i]) &&
+        (this->_vReal[i] > this->_vReal[i + 1]))
+    {
+      if (this->_vReal[i] > maxY)
+      {
+        maxY = this->_vReal[i];
+        IndexOfMaxY = i;
+      }
+    }
+  }
+  return IndexOfMaxY;
+}
+
 void arduinoFFT::MajorPeak(double *f, double *v) {
   double maxY = 0;
   uint16_t IndexOfMaxY = 0;
