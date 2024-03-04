@@ -461,7 +461,7 @@ double arduinoFFT::MajorFreqPeak()
         interpolatedX =
             ((i + delta) * this->_samplingFrequency) / (this->_samples);
 
-      if ((this->_vReal[i] > maxY) && (interpolatedX > 1.0))
+      if ((this->_vReal[i] > maxY) && (interpolatedX > 0.5))
       {
         maxY = this->_vReal[i];
         IndexOfMaxY = i;
@@ -506,7 +506,7 @@ uint16_t arduinoFFT::MaxIndex()
         interpolatedX =
             ((i + delta) * this->_samplingFrequency) / (this->_samples);
 
-      if ((this->_vReal[i] > maxY) && (interpolatedX > 1.0))
+      if ((this->_vReal[i] > maxY) && (interpolatedX > 0.5))
       {
         maxY = this->_vReal[i];
         IndexOfMaxY = i;
